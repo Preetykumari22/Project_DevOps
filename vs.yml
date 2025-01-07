@@ -1,0 +1,26 @@
+kind: VirtualService
+apiVersion: networking.istio.io/v1
+metadata:
+  namespace: default
+  name: reviews
+  labels:
+    kiali_wizard: traffic_shifting
+spec:
+  http:
+  - route:
+    - destination:
+        host: reviews.default.svc.cluster.local
+        subset: v1
+      weight: 6
+    - destination:
+        host: reviews.default.svc.cluster.local
+        subset: v2
+      weight: 17
+    - destination:
+        host: reviews.default.svc.cluster.local
+        subset: v3
+      weight: 77
+  hosts:
+  - reviews.default.svc.cluster.local
+  gateways: ~
+
