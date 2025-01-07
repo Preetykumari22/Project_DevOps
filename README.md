@@ -25,7 +25,6 @@ Forward port 8080 to access the ArgoCD UI:
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 Access ArgoCD at https://127.0.0.1:8080.
 
-Screenshot (22)
 
 Initialize a new Git repository and push it to GitHub
 
@@ -52,7 +51,7 @@ kubectl get pods -n default
 Forward the productpage service port:
 
 kubectl port-forward  svc/productpage  -n default  80:9080
-http://127.0.0.1/productpage Screenshot (58)
+http://127.0.0.1/productpage 
 
 Install Istio using the demo profile:
 
@@ -87,19 +86,16 @@ helm repo update
 Access monitoring dashboards: Kiali:
 
 kubectl port-forward -n istio-system svc/kiali 20001:20001
-Screenshot (62)
 
 Access at http://127.0.0.1:20001.
 
 Prometheus:
 
 kubectl port-forward -n istio-system svc/prometheus 9090:9090
-Screenshot (64)
 
 Access at http://127.0.0.1:9090.
 
 Grafana
 
 kubectl port-forward -n istio-system svc/grafana 3000:3000
-Access at http://127.0.0.1:3000. Screenshot (66)
-
+Access at http://127.0.0.1:3000.
